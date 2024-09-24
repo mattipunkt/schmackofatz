@@ -5,7 +5,6 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   runApp(const MyApp());
 }
 
@@ -13,7 +12,8 @@ enum Mensen {ampark, petersteinweg, elsterbecken, academica, medizin, botanische
 
 class MySettings {
   static Map<String, String> config = {
-    "location": "106"
+    "location": "106",
+    "name": "Mensa am Park"
   };
 
 }
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
       ),
       home: const MyHomePage(title: 'Speiseplan Mensa Leipzig'),
     );
@@ -48,6 +49,29 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Mensen? _mensen = Mensen.ampark;
 
+
+  String getMensaName () {
+    if (_mensen == Mensen.ampark) {
+      return "Mensa am Park";
+    } else if (_mensen == Mensen.academica) {
+      return "Mensa Academica";
+    } else if (_mensen == Mensen.botanischergarten) {
+      return "Mensaria am Botanischen Garten";
+    } else if (_mensen == Mensen.elsterbecken) {
+      return "Mensa am Elsterbecken";
+    } else if (_mensen == Mensen.dittrichring) {
+      return "Cafeteria Dittrichring";
+    } else if (_mensen == Mensen.medizin) {
+      return "Mensa am Medizincampus";
+    } else if (_mensen == Mensen.petersteinweg) {
+      return "Mensa am Petersteinweg";
+    } else if (_mensen == Mensen.schoenauer) {
+      return "Mensa Schönauer Straße";
+    } else if (_mensen == Mensen.tierkliniken) {
+      return "Mensa an den Tierkliniken";
+    } else {return "Kein Name gegeben";}
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -55,7 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
         length: 6,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text("Speiseplan Leipzig"),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+              const Text("Speiseplan Leipzig "),
+              Flexible(child: Text(getMensaName(), style: const TextStyle(fontSize: 10),))
+            ],),
             actions: [IconButton(
                 onPressed: () {
                     showModalBottomSheet<void>(
@@ -63,17 +92,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       builder: (BuildContext context)
                     {
                       return SizedBox(
-                        height: 700,
-                        child: Center(
+                        height: 400,
+                        child: SingleChildScrollView(child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                           Column(
                           children: <Widget>[
-                        ListTile(
+                        RadioListTile<Mensen>(
                           title: const Text('Mensa am Park'),
-                          leading: Radio<Mensen>(
                             value: Mensen.ampark,
                             groupValue: _mensen,
                               onChanged: (Mensen? value) {
@@ -82,10 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   _mensen = value;
                                 });}
                           ),
-                        ),
-                            ListTile(
+                            RadioListTile<Mensen>(
                               title: const Text('Mensa Peterssteinweg'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.petersteinweg,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -94,10 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       _mensen = value;
                                     });}
                               ),
-                            ),
-                            ListTile(
+                            RadioListTile<Mensen>(
                               title: const Text('Mensa am Elsterbecken'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.elsterbecken,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -105,11 +129,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     setState(() {
                                       _mensen = value;
                                     });}
-                              ),
                             ),
-                            ListTile(
+                            RadioListTile<Mensen>(
                               title: const Text('Mensa Academica'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.academica,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -117,11 +139,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     setState(() {
                                       _mensen = value;
                                     });}
-                              ),
                             ),
-                            ListTile(
+                            RadioListTile<Mensen>(
                               title: const Text('Mensa am Medizincampus'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.medizin,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -129,11 +149,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     setState(() {
                                       _mensen = value;
                                     });}
-                              ),
                             ),
-                            ListTile(
+                            RadioListTile<Mensen>(
                               title: const Text('Mensa am Botanischen Garten'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.botanischergarten,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -141,11 +159,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     setState(() {
                                       _mensen = value;
                                     });}
-                              ),
                             ),
-                            ListTile(
+                            RadioListTile<Mensen>(
                               title: const Text('Mensa an den Tierkliniken'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.tierkliniken,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -154,10 +170,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       _mensen = value;
                                     });}
                               ),
-                            ),
-                            ListTile(
+                            RadioListTile(
                               title: const Text('Mensa Schönauer Straße'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.schoenauer,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
@@ -166,10 +180,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                       _mensen = value;
                                     });}
                               ),
-                            ),
-                            ListTile(
+                            RadioListTile(
                               title: const Text('Cafeteria Dittrichring'),
-                              leading: Radio<Mensen>(
                                 value: Mensen.dittrichring,
                                 groupValue: _mensen,
                                 onChanged: (Mensen? value) {
@@ -178,14 +190,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                   _mensen = value;
                                   });}
                               ),
-                            ),
 
                         ],
 
                           )],
                           ),
                         ),
-                      );
+                      ));
                     });
                 },
                 icon: const Icon(Icons.location_on_outlined),
@@ -295,6 +306,11 @@ class MealList extends StatelessWidget {
       String type = meal.children[0].children[0].text;
       String name = meal.children[1].text;
       var components = meal.getElementsByClassName("meal-components");
+      var prices = meal.getElementsByClassName("meal-prices");
+      String price = "";
+      for (final priceElem in prices) {
+        price = price + priceElem.text;
+      }
       String subheadline = "";
       for (final component in components) {
         subheadline = subheadline + component.text;
@@ -307,7 +323,7 @@ class MealList extends StatelessWidget {
       } else if (type == "Vegetarisches Gericht") {
         chosenicon = Icons.egg;
       } else if (type == "Veganes Gericht") {
-        chosenicon = Icons.emoji_food_beverage;
+        chosenicon = Icons.eco;
       } else if (type == "Pastateller") {
         chosenicon = Icons.ramen_dining;
         subheadline = "";
@@ -328,7 +344,7 @@ class MealList extends StatelessWidget {
         }
         meals.add(Meal(title: name,
             subheadline: subheadline,
-            price1: "1,33€",
+            price1: price,
             price2: "2,66",
             price3: "3,99",
             type: type,
@@ -351,15 +367,11 @@ class MealList extends StatelessWidget {
                         title: Text(meal.title),
                         subtitle: Text(meal.subheadline),
                     ),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text("2,40€"),
-                        SizedBox(width: 8),
-                        Text("4,90€"),
-                        SizedBox(width: 8),
-                        Text("6,60€"),
-                        SizedBox(width: 8),
+                        Text(meal.price1),
+                        const SizedBox(width: 8),
                       ],
                     )
                   ],
