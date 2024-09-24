@@ -1,16 +1,8 @@
-# schmackofatz
+# Schmackofatz
+Der Mensaplan für die Stadt Leipzig. Alle Mensen des Studentenwerks,
+alle Gerichte. 
+Bis jetzt nur für Android verfügbar. APK in den Releases vorhanden.
 
-A new Flutter project.
+Credits für das Teller-Bild
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Plate icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/plate)
