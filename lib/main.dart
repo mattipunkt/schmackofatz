@@ -28,9 +28,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: Brightness.light,
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange, brightness: Brightness.dark)
+      ),
+      themeMode: ThemeMode.system,
       home: const MyHomePage(title: 'Speiseplan Mensa Leipzig'),
     );
   }
@@ -106,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             groupValue: _mensen,
                               onChanged: (Mensen? value) {
                                 MySettings.config["location"] = "106";
+                                Navigator.of(context).pop();
                                 setState(() {
                                   _mensen = value;
                                 });}
@@ -115,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.petersteinweg,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "111";
                                     setState(() {
                                       _mensen = value;
@@ -125,6 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.elsterbecken,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "115";
                                     setState(() {
                                       _mensen = value;
@@ -135,6 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.academica,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "118";
                                     setState(() {
                                       _mensen = value;
@@ -145,6 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.medizin,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "162";
                                     setState(() {
                                       _mensen = value;
@@ -155,6 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.botanischergarten,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "127";
                                     setState(() {
                                       _mensen = value;
@@ -165,6 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.tierkliniken,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "170";
                                     setState(() {
                                       _mensen = value;
@@ -175,6 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.schoenauer,
                                 groupValue: _mensen,
                                   onChanged: (Mensen? value) {
+                                    Navigator.of(context).pop();
                                     MySettings.config["location"] = "140";
                                     setState(() {
                                       _mensen = value;
@@ -185,6 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 value: Mensen.dittrichring,
                                 groupValue: _mensen,
                                 onChanged: (Mensen? value) {
+                                  Navigator.of(context).pop();
                                   MySettings.config["location"] = "153";
                                   setState(() {
                                   _mensen = value;
