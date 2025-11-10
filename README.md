@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="https://github.com/mattipunkt/schmackofatz/README.de.md">Deutsche Anleitung</a>
+  <a href="https://github.com/mattipunkt/schmackofatz/blob/master/README.de.md">Deutsche Anleitung</a>
 </p>
 
 <p align="center">
