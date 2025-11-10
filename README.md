@@ -9,7 +9,7 @@
 # Schmackofatz
 *A meal plan app for Leipzig, written in Flutter using beautiful Material UI 3*
 
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroidButtonGreyBorder_nofont.png" height="50" alt="Get it at IzzyOnDroid">](https://apt.izzysoft.de/packages/schmackofatz)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroidButtonGreyBorder_nofont.png" height="50" alt="Get it at IzzyOnDroid">](https://apt.izzysoft.de/packages/space.pleura.schmackofatz)
 
 ## Installation
 ### Install Droid-ify and install through IzzyOnDroid-Repo (recommended)
