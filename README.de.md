@@ -5,7 +5,7 @@
 # Schmackofatz
 *Der Speiseplan für alle Mensen in Leipzig, gebaut mit Flutter und Material UI 3*
 
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroidButtonGreyBorder_nofont.png" height="50" alt="Get it at IzzyOnDroid">](https://apt.izzysoft.de/packages/schmackofatz)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroidButtonGreyBorder_nofont.png" height="50" alt="Get it at IzzyOnDroid">](https://apt.izzysoft.de/packages/space.pleura.schmackofatz)
 
 ## Installation
 ### Installation über Droid-ify mit IzzyOnDroid (empfohlener Weg)
